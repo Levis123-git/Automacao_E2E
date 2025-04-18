@@ -34,6 +34,13 @@ public class Metodos extends Drivers {
 			throw new NotFoundException("Não foi possivel encontrar o Elemento: " + locator);
 		}
 	}
+	public void apagar(By locator) {
+		try {
+			driver.findElement(locator).clear();
+		} catch (Exception e) {
+			throw new NotFoundException("Não foi possivel encontrar o Elemento: " + locator);
+		}
+	}
 
 	public void clicar(By locator) {
 		try {

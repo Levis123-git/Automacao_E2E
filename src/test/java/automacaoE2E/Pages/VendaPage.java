@@ -11,7 +11,9 @@ public class VendaPage {
 	
 	public void vender(String ativo, String preco, String qtd) {
 		metodo.escrever(el.getAtivo(), ativo);
+		metodo.apagar(el.getPreco());
 		metodo.escrever(el.getPreco(), preco);
+		metodo.apagar(el.getQtd());
 		metodo.escrever(el.getQtd(), qtd);
 		metodo.clicar(el.getBtnVender());
 		
