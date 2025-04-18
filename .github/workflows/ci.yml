@@ -35,11 +35,10 @@ jobs:
       run: mvn test
 
     - name: Gerar relatório Allure
-      run: mvn allure:serve
-      continue-on-error: true
+      run: mvn allure:report
 
     - name: Upload do relatório Allure
       uses: actions/upload-artifact@v3
       with:
         name: allure-report
-        path: target/allure-results
+        path: target/site/allure-maven-plugin
