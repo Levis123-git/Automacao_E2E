@@ -16,7 +16,7 @@ public class Executa extends Drivers {
 	@Test
 	public void setup () {
 		try {
-			//options.addArguments("--headless");
+			options.addArguments("--headless");
 			driver = new ChromeDriver(options);
 			driver.get("https://desafio.ui.e2etreinamentos.com.br/hb.html");
 		} catch (Exception e) {
