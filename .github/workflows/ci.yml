@@ -33,3 +33,13 @@ jobs:
 
     - name: Rodar os testes
       run: mvn test
+
+    - name: Gerar relatório Allure
+      run: mvn allure:serve
+      continue-on-error: true
+
+    - name: Upload do relatório Allure
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: target/allure-results
