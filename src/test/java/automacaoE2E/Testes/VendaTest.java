@@ -1,9 +1,13 @@
 package automacaoE2E.Testes;
 
 import org.junit.jupiter.api.AfterEach;
+
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -13,6 +17,7 @@ import automacaoE2E.Pages.LoginPage;
 import automacaoE2E.Pages.VendaPage;
 import automacaoE2E.Runner.Executa;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class VendaTest {
 	
 	LoginPage login = new LoginPage();
@@ -47,7 +52,7 @@ public class VendaTest {
 	}
 	@Order(2)
 	@Test
-	void VendaFracionadaSucessoValor29_40() {
+	void vendaFracionadaSucessoValor29_40() {
 		venda.vender("PETR3", "29,40", "150");
 		metodo.accAllAlerts();
 		metodo.validarTexto(By.id("balance"), "R$ 9910.00");
@@ -55,7 +60,7 @@ public class VendaTest {
 	}
 	@Order(3)
 	@Test
-	void VendaFracionadaSucessoValor33_00() {
+	void vendaFracionadaSucessoValor33_00() {
 		venda.vender("PETR3", "33,00", "150");
 		metodo.accAllAlerts();
 		metodo.validarTexto(By.id("balance"), "R$ 10450.00");
@@ -63,7 +68,7 @@ public class VendaTest {
 	}
 	@Order(4)
 	@Test
-	void VendaFracionadaSucessoValor29_41() {
+	void vendaFracionadaSucessoValor29_41() {
 		venda.vender("PETR3", "29,41", "150");
 		metodo.accAllAlerts();
 		metodo.validarTexto(By.id("balance"), "R$ 9911.50");
@@ -71,7 +76,7 @@ public class VendaTest {
 	}
 	@Order(5)
 	@Test
-	void VendaFracionadaSucessoValor29_99() {
+	void vendaFracionadaSucessoValor29_99() {
 		venda.vender("PETR3", "29,99", "150");
 		metodo.accAllAlerts();
 		metodo.validarTexto(By.id("balance"), "R$ 9998.50");
