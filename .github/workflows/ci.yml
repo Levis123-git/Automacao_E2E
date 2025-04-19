@@ -28,17 +28,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
 
-    - name: Build com Maven
-      run: mvn clean install
+    - name: Build e Testes com Maven + Allure
+      run: mvn clean test allure:report
 
-    - name: Rodar os testes
-      run: mvn test
-
-    - name: Gerar relatório Allure
-      run: mvn allure:report
-
-    - name: Upload do relatório Allure
-      uses: actions/upload-artifact@v4
+    - name: Publicar relatório Allure
+      uses: simple-elf/allure-report-action@v1.7
       with:
-        name: allure-report
-        path: target/site/allure-maven-plugin
+        allure_results: target/allure-results
+        allure_report: target/site/allure-maven-plugin
+        keep_reports: 10

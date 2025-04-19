@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -56,19 +56,20 @@
 
   <build>
     <plugins>
-      <!-- Plugin para executar testes com JUnit 5 -->
+      <!-- Plugin para executar testes -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire.version}</version>
         <configuration>
+          <useModulePath>false</useModulePath>
           <includes>
             <include>**/*Test.java</include>
           </includes>
         </configuration>
       </plugin>
 
-      <!-- Plugin do Allure para gerar relatórios -->
+      <!-- Plugin do Allure para gerar relatório -->
       <plugin>
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-maven</artifactId>
@@ -76,4 +77,12 @@
       </plugin>
     </plugins>
   </build>
+
+  <repositories>
+    <repository>
+      <id>allure</id>
+      <url>https://plugins.gradle.org/m2/</url>
+    </repository>
+  </repositories>
+
 </project>
