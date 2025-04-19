@@ -105,10 +105,6 @@ Os relatórios também são publicados automaticamente pelo GitHub Actions após
 
 - **QA Levi Alves** - Desenvolvimento e manutenção da automação E2E
 
-## 📄 Licença
-
-Este projeto está sob a licença [MIT](https://opensource.org/licenses/MIT).
-
 ---
 
 ⭐️ Desenvolvido por Levi Alves ⭐️
