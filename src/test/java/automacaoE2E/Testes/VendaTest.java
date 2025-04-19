@@ -1,9 +1,9 @@
 package automacaoE2E.Testes;
 
-import java.util.Locale;
+
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -28,11 +28,7 @@ public class VendaTest {
 	Metodos metodo = new Metodos();
 	ChromeOptions options = new ChromeOptions();
 	
-	@BeforeAll
-	public static void configurarLocale() {
-	    Locale.setDefault(Locale.forLanguageTag("pt-BR"));
-	}
-
+	
 	
 	@BeforeEach
 	public void antesDosTestes() {

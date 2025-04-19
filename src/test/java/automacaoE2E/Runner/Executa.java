@@ -2,6 +2,9 @@ package automacaoE2E.Runner;
 
 
 
+import java.util.Locale;
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,7 +16,11 @@ import automacaoE2E.Drivers.Drivers;
 public class Executa extends Drivers {
     
     ChromeOptions options = new ChromeOptions();
-
+    
+    @BeforeAll
+	public static void configurarLocale() {
+	    Locale.setDefault(Locale.forLanguageTag("pt-BR"));
+	}
    
 
     @Test
