@@ -28,9 +28,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
 
-    - name: Build e Testes com Maven + Allure
-      run: mvn clean test allure:report
+    - name: Build e Testes com Maven
+      run: mvn clean test -U  # Força a atualização das dependências
 
+    # Se quiser adicionar um comando para gerar o relatório Allure, você pode deixar esse step
     - name: Publicar relatório Allure
       uses: simple-elf/allure-report-action@v1.7
       with:

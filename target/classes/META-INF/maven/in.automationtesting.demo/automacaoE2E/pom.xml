@@ -13,8 +13,7 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <junit.jupiter.version>5.12.2</junit.jupiter.version>
-    <surefire.version>3.2.5</surefire.version>
-    <allure.version>2.24.0</allure.version>
+    <surefire.version>3.0.0-M5</surefire.version> <!-- Atualize para uma versão mais estável -->
   </properties>
 
   <dependencies>
@@ -45,13 +44,6 @@
       <artifactId>commons-io</artifactId>
       <version>2.19.0</version>
     </dependency>
-
-    <!-- Allure JUnit5 Adapter -->
-    <dependency>
-      <groupId>io.qameta.allure</groupId>
-      <artifactId>allure-junit5</artifactId>
-      <version>${allure.version}</version>
-    </dependency>
   </dependencies>
 
   <build>
@@ -64,24 +56,20 @@
         <configuration>
           <useModulePath>false</useModulePath>
           <includes>
-            <include>**/*Test.java</include>
+            <include>**/*Test.java</include> <!-- Certifique-se de que os testes terminam com Test.java -->
           </includes>
+          <dependenciesToScan>
+            <dependency>org.junit.jupiter:junit-jupiter-api</dependency>
+          </dependenciesToScan>
         </configuration>
-      </plugin>
-
-      <!-- Plugin do Allure para gerar relatório -->
-      <plugin>
-        <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-maven</artifactId>
-        <version>2.11.2</version>
       </plugin>
     </plugins>
   </build>
 
   <repositories>
     <repository>
-      <id>allure</id>
-      <url>https://plugins.gradle.org/m2/</url>
+        <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
     </repository>
   </repositories>
 
