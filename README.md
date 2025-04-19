@@ -101,6 +101,15 @@ mvn allure:serve
 
 Os relatórios também são publicados automaticamente pelo GitHub Actions após cada execução da pipeline.
 
+## ✅ Evidência de Execução
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e9ed2c13-765e-4c46-80a8-a71be7aa5f80" alt="Testes passando no console" width="800">
+  <br>
+  <em>Execução bem-sucedida dos testes automatizados</em>
+</p>
+
+
 ## 👨‍💻 Contribuidor
 
 - **QA Levi Alves** - Desenvolvimento e manutenção da automação E2E
