@@ -2,7 +2,7 @@
 
 ## 📋 Descrição do Projeto
 
-Este projeto implementa uma automação de testes End-to-End (E2E) para validar fluxos críticos de uma aplicação, incluindo login, compra e venda. A automação vai além das funcionalidades básicas, explorando diversos cenários e comportamentos da aplicação conforme a documentação.
+Este projeto implementa uma automação de testes End-to-End (E2E) para validar fluxos críticos da aplicação Home Broker uma aplicação de compra e venda de ações, incluindo login e validações na Boleta de compra e venda. A automação vai além das funcionalidades básicas, explorando diversos cenários e comportamentos da aplicação conforme a documentação.
 
 ## 🚀 Funcionalidades
 
