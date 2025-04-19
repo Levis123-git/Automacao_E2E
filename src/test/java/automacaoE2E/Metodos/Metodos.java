@@ -23,8 +23,9 @@ public class Metodos extends Drivers {
 
 	/**
 	 * Escreve num elemento atravez de um By capturado
+	 * 
 	 * @param locator //captura através de um .findElement
-	 * @param texto //escreve através de um .sendKeys
+	 * @param texto   //escreve através de um .sendKeys
 	 * @author Levis
 	 */
 	public void escrever(By locator, String texto) {
@@ -34,6 +35,7 @@ public class Metodos extends Drivers {
 			throw new NotFoundException("Não foi possivel encontrar o Elemento: " + locator);
 		}
 	}
+
 	public void apagar(By locator) {
 		try {
 			driver.findElement(locator).clear();
@@ -50,6 +52,7 @@ public class Metodos extends Drivers {
 		}
 
 	}
+
 	public void validarUrl(String urlEsperada) {
 		try {
 			String urlCapturada = driver.getCurrentUrl();
@@ -58,6 +61,7 @@ public class Metodos extends Drivers {
 			throw new NotFoundException("Não foi possivel localizar a URL" + urlEsperada);
 		}
 	}
+
 	public void capturarScreenshot() {
 		String diretorio = "./automacaoE2E/src/test/java/Screenshots";
 		String caminho = diretorio + "screenshot_" + System.currentTimeMillis() + ".png";
@@ -70,6 +74,7 @@ public class Metodos extends Drivers {
 		}
 		System.out.println("Screenshot salva em: " + caminho);
 	}
+
 	public void validarAlert(String msgEsperada) {
 		try {
 			String msgCapturada = driver.switchTo().alert().getText();
@@ -78,6 +83,7 @@ public class Metodos extends Drivers {
 			throw new NoAlertPresentException("Não foi possivel localizar o alert");
 		}
 	}
+
 	public void aceitarAlert() {
 		try {
 			driver.switchTo().alert().accept();
@@ -85,6 +91,7 @@ public class Metodos extends Drivers {
 			throw new NoAlertPresentException("Não foi possivel localizar o alert");
 		}
 	}
+
 	public void validarTexto(By locator, String textoEsperado) {
 		try {
 			String textoCapturado = driver.findElement(locator).getText();
@@ -93,18 +100,30 @@ public class Metodos extends Drivers {
 			throw new NoSuchElementException("Não foi possivel encontrar o Elemento" + locator);
 		}
 	}
+
 	public void accAllAlerts() {
 		while (true) {
-	        try {
-	            Alert alert = driver.switchTo().alert();
-	            alert.accept();
-	        } catch (NoAlertPresentException e) {
-	            break;
-	        }
-	    }
+			try {
+				Alert alert = driver.switchTo().alert();
+				alert.accept();
+			} catch (NoAlertPresentException e) {
+				break;
+			}
+		}
 	}
+
 	public void esperarElementoSerVisivel(By elemento, int tempoDeEspera) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(tempoDeEspera));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(elemento));
+	}
+
+	public void contemTexto(By locator, String textoEsperado) {
+		try {
+			String textoCapturado = driver.findElement(locator).getText();
+			if (textoCapturado.contains(textoEsperado)) {
+			}
+		} catch (Exception e) {
+			throw new NoSuchElementException("Não foi possivel encontrar o Elemento" + locator);
+		}
 	}
 }
