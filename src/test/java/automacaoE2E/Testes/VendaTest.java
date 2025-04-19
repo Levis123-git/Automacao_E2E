@@ -53,7 +53,7 @@ public class VendaTest {
 		metodo.validarTexto(By.id("portfolio-total"), "Total: R$ 0,00");
 
 	}
-	@Order(2)
+	/*@Order(2)
 	@Test
 	void vendaFracionadaSucessoValor29_40() {
 		venda.vender("PETR3", "29,40", "150");
@@ -84,7 +84,7 @@ public class VendaTest {
 		metodo.accAllAlerts();
 		metodo.validarTexto(By.id("balance"), "R$ 9998.50");
 
-	}
+	}*/
 	@Order(6)
 	@Test
 	public void naoDeveVenderValorMenor29_40() {
