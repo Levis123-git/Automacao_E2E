@@ -94,13 +94,13 @@ public class VendaTest {
 	public void naoDeveVenderValorMenor29_40() {
 		venda.vender("PETR3", "29,39", "150");
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
-	}
+		}
 	@Order(7)
 	@Test
 	public void naoDeveVenderValorMaior33_00() {
 		venda.vender("PETR3", "29,39", "150");
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
-	}
+		}
 	@Order(8)
 	@Test
 	public void naoDeveVenderQtd0() {
@@ -115,7 +115,7 @@ public class VendaTest {
 	public void naoDeveVenderQtdMaiorCarteira() {
 		venda.vender("PETR3", "30", "151");
 		metodo.validarAlert("Quantidade insuficiente na carteira.");
-	}
+		}
 	
 
 }

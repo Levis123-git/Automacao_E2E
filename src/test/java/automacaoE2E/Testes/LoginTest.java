@@ -41,7 +41,7 @@ public class LoginTest {
 	@Test
 	public void loginUsuarioInv() {
 		login.logar("inválido", "e2e@123");
-		metodo.validarAlert("Usuário ou senha incorretos.");
+		metodo.validarAlert("Usuário ou senha incorretos.");		
 		}
 
 	@Order(3)

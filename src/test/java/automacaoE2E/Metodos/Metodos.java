@@ -63,17 +63,21 @@ public class Metodos extends Drivers {
 	}
 
 	public void capturarScreenshot() {
-		String diretorio = "./automacaoE2E/src/test/java/Screenshots";
+
+		String diretorio = "C:\\Screenshots Demo";
 		String caminho = diretorio + "screenshot_" + System.currentTimeMillis() + ".png";
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(screenshot, new File(caminho));
+			System.out.println("Screenshot salva em: " + caminho);
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
-		System.out.println("Screenshot salva em: " + caminho);
+		
+
 	}
+
 
 	public void validarAlert(String msgEsperada) {
 		try {
