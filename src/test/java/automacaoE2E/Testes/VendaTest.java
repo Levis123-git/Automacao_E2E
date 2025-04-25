@@ -1,7 +1,5 @@
 package automacaoE2E.Testes;
 
-
-
 import org.junit.jupiter.api.AfterEach;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -20,16 +18,14 @@ import automacaoE2E.Runner.Executa;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class VendaTest {
-	
+
 	LoginPage login = new LoginPage();
 	CompraPage compra = new CompraPage();
 	VendaPage venda = new VendaPage();
 	Executa executa = new Executa();
 	Metodos metodo = new Metodos();
 	ChromeOptions options = new ChromeOptions();
-	
-	
-	
+
 	@BeforeEach
 	public void antesDosTestes() {
 		executa.setup();
@@ -51,56 +47,56 @@ public class VendaTest {
 		venda.vender("PETR3", "30", "150");
 		metodo.accAllAlerts();
 		metodo.validarTexto(By.id("portfolio-total"), "Total: R$ 0,00");
-
 	}
+
 	@Order(2)
 	@Test
 	void vendaFracionadaSucessoValor29_40() {
 		venda.vender("PETR3", "29,40", "150");
 		metodo.accAllAlerts();
 		metodo.contemTexto(By.id("balance"), "9910");
-		//metodo.validarTexto(By.id("balance"), "R$ 9910.00");
-
 	}
+
 	@Order(3)
 	@Test
 	void vendaFracionadaSucessoValor33_00() {
 		venda.vender("PETR3", "33,00", "150");
 		metodo.accAllAlerts();
 		metodo.contemTexto(By.id("balance"), "10450");
-		//metodo.validarTexto(By.id("balance"), "R$ 10450.00");
-
 	}
+
 	@Order(4)
 	@Test
 	void vendaFracionadaSucessoValor29_41() {
 		venda.vender("PETR3", "29,41", "150");
 		metodo.accAllAlerts();
 		metodo.contemTexto(By.id("balance"), "9911");
-		//metodo.validarTexto(By.id("balance"), "R$ 9911.50");
 
 	}
+
 	@Order(5)
 	@Test
 	void vendaFracionadaSucessoValor29_99() {
 		venda.vender("PETR3", "29,99", "150");
 		metodo.accAllAlerts();
 		metodo.contemTexto(By.id("balance"), "9998");
-		//metodo.validarTexto(By.id("balance"), "R$ 9998.50");
-
+		
 	}
+
 	@Order(6)
 	@Test
 	public void naoDeveVenderValorMenor29_40() {
 		venda.vender("PETR3", "29,39", "150");
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
-		}
+	}
+
 	@Order(7)
 	@Test
 	public void naoDeveVenderValorMaior33_00() {
 		venda.vender("PETR3", "29,39", "150");
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
-		}
+	}
+
 	@Order(8)
 	@Test
 	public void naoDeveVenderQtd0() {
@@ -110,12 +106,12 @@ public class VendaTest {
 		metodo.validarAlert("Preencha os campos corretamente.");
 		metodo.aceitarAlert();
 	}
+
 	@Order(9)
 	@Test
 	public void naoDeveVenderQtdMaiorCarteira() {
 		venda.vender("PETR3", "30", "151");
 		metodo.validarAlert("Quantidade insuficiente na carteira.");
-		}
-	
+	}
 
 }
