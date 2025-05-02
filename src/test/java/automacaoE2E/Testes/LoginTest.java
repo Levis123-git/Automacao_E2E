@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
+import org.openqa.selenium.remote.ScreenshotException;
 
 import automacaoE2E.ElementosWeb.Elementos;
 import automacaoE2E.Metodos.Metodos;
@@ -20,7 +21,7 @@ public class LoginTest {
 	Executa executa = new Executa();
 	Metodos metodo = new Metodos();
 	Elementos el = new Elementos();
-	
+
 	@BeforeEach
 	public void antesDosTestes() {
 		executa.setup();
@@ -37,31 +38,43 @@ public class LoginTest {
 	public void loginSucesso() {
 		login.logar("e2etreinamentos", "e2e@123");
 		metodo.validarUrl("https://desafio.ui.e2etreinamentos.com.br/home.html");
-		}
+	}
 
 	@Order(2)
 	@Test
 	public void loginUsuarioInv() {
 		login.logar("inválido", "e2e@123");
-		metodo.capturarScreenshot();
-		metodo.validarAlert("Usuário ou senha incorretos.");		
+		try {
+			metodo.capturarScreenshot();
+		} catch (Exception e) {
+			throw new ScreenshotException(e.getMessage(), e.getCause());
 		}
+		metodo.validarAlert("Usuário ou senha incorretos.");
+	}
 
 	@Order(3)
 	@Test
 	public void loginSenhaInv() {
 		login.logar("e2etreinamentos", "inválido");
-		metodo.capturarScreenshot();
-		metodo.validarAlert("Usuário ou senha incorretos.");
+		try {
+			metodo.capturarScreenshot();
+		} catch (Exception e) {
+			throw new ScreenshotException(e.getMessage(), e.getCause());
 		}
+		metodo.validarAlert("Usuário ou senha incorretos.");
+	}
 
 	@Order(4)
 	@Test
 	public void loginCamposEmBranco() {
 		login.logar("", "");
-		metodo.capturarScreenshot();
-		metodo.validarAlert("Todos os campos precisam ser preenchidos.");
+		try {
+			metodo.capturarScreenshot();
+		} catch (Exception e) {
+			throw new ScreenshotException(e.getMessage(), e.getCause());
 		}
+		metodo.validarAlert("Todos os campos precisam ser preenchidos.");
+	}
 
 	@Order(5)
 	@Test
@@ -71,6 +84,6 @@ public class LoginTest {
 		metodo.aceitarAlert();
 		metodo.validarUrl("https://desafio.ui.e2etreinamentos.com.br/hb.html");
 		metodo.validarTexto(By.xpath("//h2[contains(text(),'Acesse sua conta')]"), "Acesse sua conta");
-		}
+	}
 
 }
