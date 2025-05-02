@@ -1,4 +1,49 @@
 -------------------------------------------------------------------------------
 Test set: automacaoE2E.Testes.LoginTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.762 s - in automacaoE2E.Testes.LoginTest
+Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 21.337 s <<< FAILURE! - in automacaoE2E.Testes.LoginTest
+automacaoE2E.Testes.LoginTest.loginUsuarioInv  Time elapsed: 2.59 s  <<< ERROR!
+org.openqa.selenium.remote.ScreenshotException: 
+unexpected alert open: {Alert text : Usuário ou senha incorretos.}
+  (Session info: chrome=135.0.7049.43): Usuário ou senha incorretos.
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2b2f542a7c8ab1d3734335e928ef68cb, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.43, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: C:\Users\Levis\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51002}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51002/devtoo..., se:cdpVersion: 135.0.7049.43, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2b2f542a7c8ab1d3734335e928ef68cb
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: driver.version: unknown
+	at automacaoE2E.Testes.LoginTest.loginUsuarioInv(LoginTest.java:50)
+
+automacaoE2E.Testes.LoginTest.loginSenhaInv  Time elapsed: 5.324 s  <<< ERROR!
+org.openqa.selenium.remote.ScreenshotException: 
+unexpected alert open: {Alert text : Usuário ou senha incorretos.}
+  (Session info: chrome=135.0.7049.43): Usuário ou senha incorretos.
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a21a3c9e058b4c4e5f7e74b082c9c882, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.43, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: C:\Users\Levis\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51020}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51020/devtoo..., se:cdpVersion: 135.0.7049.43, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a21a3c9e058b4c4e5f7e74b082c9c882
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: driver.version: unknown
+	at automacaoE2E.Testes.LoginTest.loginSenhaInv(LoginTest.java:62)
+
+automacaoE2E.Testes.LoginTest.loginCamposEmBranco  Time elapsed: 2.398 s  <<< ERROR!
+org.openqa.selenium.remote.ScreenshotException: 
+unexpected alert open: {Alert text : Todos os campos precisam ser preenchidos.}
+  (Session info: chrome=135.0.7049.43): Todos os campos precisam ser preenchidos.
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5aa0f5abc84fb0eb2bc3ce2c78c3c925, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.43, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: C:\Users\Levis\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51039}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51039/devtoo..., se:cdpVersion: 135.0.7049.43, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5aa0f5abc84fb0eb2bc3ce2c78c3c925
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: driver.version: unknown
+	at automacaoE2E.Testes.LoginTest.loginCamposEmBranco(LoginTest.java:74)
+

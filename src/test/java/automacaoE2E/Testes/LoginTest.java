@@ -44,11 +44,6 @@ public class LoginTest {
 	@Test
 	public void loginUsuarioInv() {
 		login.logar("inválido", "e2e@123");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("Usuário ou senha incorretos.");
 	}
 
@@ -56,11 +51,6 @@ public class LoginTest {
 	@Test
 	public void loginSenhaInv() {
 		login.logar("e2etreinamentos", "inválido");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("Usuário ou senha incorretos.");
 	}
 
@@ -68,11 +58,6 @@ public class LoginTest {
 	@Test
 	public void loginCamposEmBranco() {
 		login.logar("", "");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("Todos os campos precisam ser preenchidos.");
 	}
 

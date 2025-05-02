@@ -10,7 +10,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.ScreenshotException;
+
 
 import automacaoE2E.Drivers.Drivers;
 import automacaoE2E.Metodos.Metodos;
@@ -53,11 +53,6 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarPrecoMenor() {
 		compra.comprar("PETR3", "28", "150");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
 		metodo.accAllAlerts();
 	}
@@ -66,11 +61,6 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarPrecoMaior() {
 		compra.comprar("PETR3", "34", "150");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
 		metodo.accAllAlerts();
 	}
@@ -79,11 +69,6 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarQtdMenor() {
 		compra.comprar("PETR3", "30", "0");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("Preencha os campos corretamente.");
 		metodo.accAllAlerts();
 	}
@@ -92,11 +77,6 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarQtdMaior() {
 		compra.comprar("PETR3", "30", "151");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("Quantidade insuficiente no livro de ofertas.");
 		metodo.accAllAlerts();
 	}
@@ -141,11 +121,6 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarFracionadaPreco0() {
 		compra.comprar("PETR3", "0", "150");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("Preencha os campos corretamente.");
 		metodo.accAllAlerts();
 	}
@@ -154,11 +129,6 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarFracionadaPreco10() {
 		compra.comprar("PETR3", "10", "150");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
 		metodo.accAllAlerts();
 	}

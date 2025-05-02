@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.ScreenshotException;
 
 import automacaoE2E.Metodos.Metodos;
 import automacaoE2E.Pages.CompraPage;
@@ -88,11 +87,6 @@ public class VendaTest {
 	@Test
 	public void naoDeveVenderValorMenor29_40() {
 		venda.vender("PETR3", "29,39", "150");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
 	}
 
@@ -100,11 +94,6 @@ public class VendaTest {
 	@Test
 	public void naoDeveVenderValorMaior33_00() {
 		venda.vender("PETR3", "29,39", "150");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
 	}
 
@@ -114,11 +103,6 @@ public class VendaTest {
 		venda.vender("PETR3", "33,00", "0");
 		metodo.validarAlert("Por favor, insira valores válidos.");
 		metodo.aceitarAlert();
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("Preencha os campos corretamente.");
 		metodo.aceitarAlert();
 	}
@@ -127,11 +111,6 @@ public class VendaTest {
 	@Test
 	public void naoDeveVenderQtdMaiorCarteira() {
 		venda.vender("PETR3", "30", "151");
-		try {
-			metodo.capturarScreenshot();
-		} catch (Exception e) {
-			throw new ScreenshotException(e.getMessage(), e.getCause());
-		}
 		metodo.validarAlert("Quantidade insuficiente na carteira.");
 	}
 
