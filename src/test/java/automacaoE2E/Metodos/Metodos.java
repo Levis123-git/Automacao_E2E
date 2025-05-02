@@ -69,10 +69,21 @@ public class Metodos extends Drivers {
 		if (!pasta.exists()) {
 			pasta.mkdirs();
 		}
-		// Gera o caminho completo com timestamp
+		// Gera o caminho completo com timestamp para o screenshot
 		String caminho = diretorio + "screenshot_" + System.currentTimeMillis() + ".png";
-		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+		// Tenta capturar a tela
 		try {
+			// Verifica se há um alerta presente antes de tirar o screenshot
+			try {
+				Alert alert = driver.switchTo().alert();
+				System.out.println("Alerta detectado: " + alert.getText());
+			} catch (Exception e) {
+				// Caso não haja alerta, o fluxo continua normalmente
+				System.out.println("Nenhum alerta presente.");
+			}
+			// Captura o screenshot
+			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenshot, new File(caminho));
 			System.out.println("Screenshot salva em: " + caminho);
 		} catch (IOException e) {
