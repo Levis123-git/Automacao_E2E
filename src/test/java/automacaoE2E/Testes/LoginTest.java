@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
 
+import automacaoE2E.ElementosWeb.Elementos;
 import automacaoE2E.Metodos.Metodos;
 import automacaoE2E.Pages.LoginPage;
 import automacaoE2E.Runner.Executa;
@@ -18,7 +19,8 @@ public class LoginTest {
 	LoginPage login = new LoginPage();
 	Executa executa = new Executa();
 	Metodos metodo = new Metodos();
-
+	Elementos el = new Elementos();
+	
 	@BeforeEach
 	public void antesDosTestes() {
 		executa.setup();
@@ -41,6 +43,7 @@ public class LoginTest {
 	@Test
 	public void loginUsuarioInv() {
 		login.logar("inválido", "e2e@123");
+		metodo.capturarScreenshot();
 		metodo.validarAlert("Usuário ou senha incorretos.");		
 		}
 
@@ -48,6 +51,7 @@ public class LoginTest {
 	@Test
 	public void loginSenhaInv() {
 		login.logar("e2etreinamentos", "inválido");
+		metodo.capturarScreenshot();
 		metodo.validarAlert("Usuário ou senha incorretos.");
 		}
 
@@ -55,6 +59,7 @@ public class LoginTest {
 	@Test
 	public void loginCamposEmBranco() {
 		login.logar("", "");
+		metodo.capturarScreenshot();
 		metodo.validarAlert("Todos os campos precisam ser preenchidos.");
 		}
 
@@ -62,7 +67,7 @@ public class LoginTest {
 	@Test
 	public void logoutSucesso() {
 		login.logar("e2etreinamentos", "e2e@123");
-		metodo.clicar(login.getLogoutBtn());
+		metodo.clicar(el.getLogoutBtn());
 		metodo.aceitarAlert();
 		metodo.validarUrl("https://desafio.ui.e2etreinamentos.com.br/hb.html");
 		metodo.validarTexto(By.xpath("//h2[contains(text(),'Acesse sua conta')]"), "Acesse sua conta");

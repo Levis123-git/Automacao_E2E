@@ -63,21 +63,22 @@ public class Metodos extends Drivers {
 	}
 
 	public void capturarScreenshot() {
-
-		String diretorio = "C:\\Screenshots Demo";
+		String diretorio = "target/screenshots/";
+		File pasta = new File(diretorio);
+		// Cria a pasta se não existir
+		if (!pasta.exists()) {
+			pasta.mkdirs();
+		}
+		// Gera o caminho completo com timestamp
 		String caminho = diretorio + "screenshot_" + System.currentTimeMillis() + ".png";
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(screenshot, new File(caminho));
 			System.out.println("Screenshot salva em: " + caminho);
 		} catch (IOException e) {
-
 			e.printStackTrace();
 		}
-		
-
 	}
-
 
 	public void validarAlert(String msgEsperada) {
 		try {

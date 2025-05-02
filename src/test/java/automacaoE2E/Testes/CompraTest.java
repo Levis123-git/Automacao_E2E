@@ -57,6 +57,7 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarPrecoMenor() {
 		compra.comprar("PETR3", "28", "150");
+		metodo.capturarScreenshot();
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
 		metodo.accAllAlerts();
 	}
@@ -65,6 +66,7 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarPrecoMaior() {
 		compra.comprar("PETR3", "34", "150");
+		metodo.capturarScreenshot();
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
 		metodo.accAllAlerts();
 	}
@@ -73,6 +75,7 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarQtdMenor() {
 		compra.comprar("PETR3", "30", "0");
+		metodo.capturarScreenshot();
 		metodo.validarAlert("Preencha os campos corretamente.");
 		metodo.accAllAlerts();
 	}
@@ -81,6 +84,7 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarQtdMaior() {
 		compra.comprar("PETR3", "30", "151");
+		metodo.capturarScreenshot();
 		metodo.validarAlert("Quantidade insuficiente no livro de ofertas.");
 		metodo.accAllAlerts();
 	}
@@ -125,6 +129,7 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarFracionadaPreco0() {
 		compra.comprar("PETR3", "0", "150");
+		metodo.capturarScreenshot();
 		metodo.validarAlert("Preencha os campos corretamente.");
 		metodo.accAllAlerts();
 	}
@@ -133,6 +138,7 @@ public class CompraTest extends Drivers {
 	@Test
 	void naoDeveComprarFracionadaPreco10() {
 		compra.comprar("PETR3", "10", "150");
+		metodo.capturarScreenshot();
 		metodo.validarAlert("O preço deve estar entre R$ 29,40 e R$ 33,00");
 		metodo.accAllAlerts();
 	}
