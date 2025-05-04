@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
 
-import org.openqa.selenium.chrome.ChromeOptions;
+ 
 
 
 import automacaoE2E.Drivers.Drivers;
@@ -26,7 +26,7 @@ public class CompraTest extends Drivers {
 	CompraPage compra = new CompraPage();
 	Executa executa = new Executa();
 	Metodos metodo = new Metodos();
-	ChromeOptions options = new ChromeOptions();
+
 
 	@BeforeEach
 	public void antesDosTestes() {

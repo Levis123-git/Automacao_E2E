@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.ScreenshotException;
+
 
 import automacaoE2E.ElementosWeb.Elementos;
 import automacaoE2E.Metodos.Metodos;
